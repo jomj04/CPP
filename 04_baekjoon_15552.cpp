@@ -1,4 +1,4 @@
-// 백준 15552번
+// 백준 15552번 (빠른 입출력 관련)
 #include <iostream>
 using namespace std;
 
