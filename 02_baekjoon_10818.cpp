@@ -1,4 +1,4 @@
-// 백준 10818번 (최대최소 관련)
+// 백준 10818번 (최대최소 관련 함수)
 #include <iostream>
 #include <algorithm>
 using namespace std;
