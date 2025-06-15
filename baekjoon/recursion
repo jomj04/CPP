@@ -1,0 +1,38 @@
+/*
+백준 1629번, A ^ B % C를 구하는 문제
+A ^ B을 단독으로 수행하면 수가 천문학적으로 커지기 때문에
+(x * y) % z = ( (x % z) * (y % z) ) % z 항등식과 recursion을 이용한다
+모듈러 거듭제곱의 아이디어를 얻을 수 있다
+*/
+#include <iostream>
+using namespace std;
+
+inline static unsigned long long int power(unsigned long long int x, unsigned long long n, unsigned long long int mod)
+{
+	if (n == 0) return 1;
+
+	unsigned long long int half_power = power(x, n / 2, mod);
+	unsigned long long int squared_half_power = (half_power * half_power) % mod;
+	
+	if (n % 2 == 0)
+	{
+		return squared_half_power;
+	}
+	else
+	{
+		return ((x % mod) * squared_half_power) % mod;
+	}
+
+}
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(0), cout.tie(0);
+
+	unsigned long long int A, B, C;
+	cin >> A >> B >> C;
+	cout << power(A, B, C);
+
+	return 0;
+}
